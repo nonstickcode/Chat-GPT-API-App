@@ -26,9 +26,6 @@ userInterface.on("line", async input => {
     // Log the structure of the 'message' object
     console.log(response.choices[0].message.content);
 
-    // Once you know the correct property name, you can uncomment the following line:
-    // console.log(response.choices[0].message.[propertyName]);
-
   } catch (error) {
     console.error("Error:", error);
   }
