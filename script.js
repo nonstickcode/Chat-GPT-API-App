@@ -1,26 +1,36 @@
-import { config } from "dotenv"
-config()
+import { config } from "dotenv";
+config();
 
-import { Configuration, OpenAIApi } from "openai"
-import readline from "readline"
+import OpenAI from "openai";
+import readline from "readline";
 
-const openAi = new OpenAIApi(
-  new Configuration({
-    apiKey: process.env.OPEN_AI_API_KEY,
-  })
-)
+// Create a new instance of the OpenAI object with your API key
+const openai = new OpenAI({
+  apiKey: process.env.OPEN_AI_API_KEY,
+});
 
 const userInterface = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-})
+});
 
-userInterface.prompt()
+userInterface.prompt();
+
 userInterface.on("line", async input => {
-  const response = await openAi.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: input }],
-  })
-  console.log(response.data.choices[0].message.content)
-  userInterface.prompt()
-})
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: input }],
+    });
+
+    // Log the structure of the 'message' object
+    console.log(response.choices[0].message.content);
+
+    // Once you know the correct property name, you can uncomment the following line:
+    // console.log(response.choices[0].message.[propertyName]);
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+  userInterface.prompt();
+});
