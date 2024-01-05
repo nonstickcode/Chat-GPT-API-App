@@ -1,6 +1,6 @@
 # chat-GPT-API-app
 
-![Project Image](./readme-image.jpeg)
+![Project Image](./readme-image.png)
 
 ## Overview
 
