@@ -1,5 +1,7 @@
 # chat-GPT-API-app
 
+![Project Image](./readme-image.jpeg)
+
 ## Overview
 
 chat-GPT-API-app is a simple, proof-of-concept terminal application developed as a learning project. It's designed to interact with the Chat GPT API, following a tutorial by WebDevSimplified. This application operates entirely within the terminal, providing a straightforward interface to communicate with Chat GPT.
